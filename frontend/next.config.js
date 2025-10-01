@@ -9,8 +9,19 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['localhost', 'tembea-sacco.co.ke', 'api.tembea-sacco.co.ke'],
+    domains: [
+      'localhost', 
+      'tembeasacco.vercel.app',
+      'api.tembeasacco.vercel.app',
+      'tembea-sacco.co.ke',
+      'api.tembea-sacco.co.ke',
+      'vercel.app'
+    ],
     formats: ['image/webp', 'image/avif'],
+  },
+  env: {
+    SITE_URL: 'https://tembeasacco.vercel.app',
+    API_URL: 'https://api.tembeasacco.vercel.app',
   },
   async headers() {
     return [
@@ -28,17 +39,19 @@ const nextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains'
           }
         ],
       }
     ]
   },
-  // Enable CSS modules
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: '[local]___[hash:base64:5]',
-  },
+  // Vercel optimization
+  poweredByHeader: false,
+  compress: true,
+  trailingSlash: false,
 }
 
 module.exports = nextConfig
