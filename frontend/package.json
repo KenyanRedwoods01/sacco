@@ -1,0 +1,41 @@
+{
+  "name": "tembea-sacco-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "build:member": "next build apps/member-portal",
+    "build:staff": "next build apps/staff-portal",
+    "build:board": "next build apps/board-portal",
+    "start": "next start -p 3000",
+    "start:member": "next start apps/member-portal -p 3001",
+    "start:staff": "next start apps/staff-portal -p 3002",
+    "start:board": "next start apps/board-portal -p 3003",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "vercel-build": "npm run build",
+    "vercel-dev": "npm run dev"
+  },
+  "dependencies": {
+    "next": "13.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.2.2",
+    "tailwindcss": "3.3.0",
+    "@tailwindcss/forms": "0.5.4",
+    "@tailwindcss/typography": "0.5.10",
+    "@tailwindcss/aspect-ratio": "0.4.2",
+    "axios": "^1.5.0",
+    "lucide-react": "^0.288.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.0",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.5.6",
+    "postcss": "8.4.29",
+    "autoprefixer": "10.4.15"
+  }
+}
