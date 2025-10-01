@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-500: #22c55e;
+  --primary-600: #16a34a;
+  --radius-default: 0.75rem;
+}
+
+/* Smooth scrolling that doesn't affect layout */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Custom scrollbar that doesn't affect layout */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Floating sidebar styles */
+.floating-sidebar {
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.2), 
+              0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Card styles with rounded corners */
+.sacco-card {
+  @apply bg-white rounded-xl shadow-soft border border-gray-100 transition-all duration-300 hover:shadow-medium;
+}
+
+.sacco-card-hover {
+  @apply transform hover:-translate-y-1 hover:shadow-large;
+}
+
+/* Dashboard grid layout */
+.dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Navigation styles */
+.nav-item {
+  @apply flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200;
+}
+
+.nav-item.active {
+  @apply bg-primary-50 text-primary-700 border border-primary-200;
+}
+
+.nav-item:not(.active):hover {
+  @apply bg-accent-50 text-accent-700;
+}
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500 shadow-sm hover:shadow-md;
+}
+
+.btn-secondary {
+  @apply bg-accent-100 text-accent-700 hover:bg-accent-200 focus:ring-accent-500 border border-accent-200;
+}
+
+.btn-ghost {
+  @apply text-accent-600 hover:bg-accent-50 focus:ring-accent-500;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-accent-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-white;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-accent-700 mb-2;
+}
+
+/* Stats cards */
+.stat-card {
+  @apply sacco-card p-6 text-center;
+}
+
+.stat-value {
+  @apply text-3xl font-bold text-accent-900 font-display;
+}
+
+.stat-label {
+  @apply text-sm text-accent-600 mt-2;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  @apply inline-block w-6 h-6 border-2 border-primary-200 border-t-primary-500 rounded-full animate-spin;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    @apply bg-accent-900 text-accent-100;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .mobile-padding {
+    @apply px-4;
+  }
+  
+  .mobile-stack {
+    @apply flex flex-col space-y-4;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
