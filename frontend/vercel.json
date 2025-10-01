@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "name": "tembeasacco",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["nrt1"],
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://tembeasacco.vercel.app",
+    "NEXT_PUBLIC_API_URL": "https://api.tembeasacco.vercel.app"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_SITE_URL": "https://tembeasacco.vercel.app",
+      "NEXT_PUBLIC_API_URL": "https://api.tembeasacco.vercel.app"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "functions": {
+    "apps/member-portal/pages/api/**": {
+      "maxDuration": 30
+    },
+    "apps/staff-portal/pages/api/**": {
+      "maxDuration": 30
+    }
+  }
+}
